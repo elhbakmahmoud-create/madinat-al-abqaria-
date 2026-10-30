@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="game-container">
+
+  <header class="header">
+    <div class="logo">🧠</div>
+    <h1>مدينة العباقرة</h1>
+    <p>حيث تتحول المعرفة إلى مغامرة!</p>
+  </header>
+
+  <section id="home" class="page active">
+
+    <div class="welcome">
+      <div class="welcome-icon">🚀</div>
+      <h2>مرحبًا بك في مدينة العباقرة!</h2>
+      <p>
+        استعد لخوض رحلة مليئة بالتحديات
+        واختبر ذكاءك في عالم الرياضيات والعلوم.
+      </p>
+
+      <button class="main-button" onclick="showPage('setup')">
+        ابدأ المغامرة
+        <span>➜</span>
+      </button>
+    </div>
+
+    <div class="features">
+
+      <div class="feature-card">
+        <span>➗</span>
+        <h3>الرياضيات</h3>
+        <p>اكتشف عالم الأرقام</p>
+      </div>
+
+      <div class="feature-card">
+        <span>🔬</span>
+        <h3>العلوم</h3>
+        <p>اكتشف أسرار الكون</p>
+      </div>
+
+      <div class="feature-card">
+        <span>🏆</span>
+        <h3>التحديات</h3>
+        <p>اجمع النقاط والميداليات</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="setup" class="page">
+
+    <h2>⚙️ إعداد مغامرتك</h2>
+    <p class="subtitle">اختَر إعدادات التحدي قبل الانطلاق</p>
+
+    <div class="form-group">
+      <label for="grade">🎓 الصف الدراسي</label>
+      <select id="grade">
+        <option value="1">الأول الابتدائي</option>
+        <option value="2">الثاني الابتدائي</option>
+        <option value="3">الثالث الابتدائي</option>
+        <option value="4">الرابع الابتدائي</option>
+        <option value="5">الخامس الابتدائي</option>
+        <option value="6">السادس الابتدائي</option>
+        <option value="7">الأول المتوسط</option>
+        <option value="8">الثاني المتوسط</option>
+        <option value="9">الثالث المتوسط</option>
+        <option value="10">الأول الثانوي</option>
+        <option value="11">الثاني الثانوي</option>
+        <option value="12">الثالث الثانوي</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">📚 المادة</label>
+      <select id="subject">
+        <option value="math">➗ الرياضيات</option>
+        <option value="science">🔬 العلوم</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="term">📖 الفصل الدراسي</label>
+      <select id="term">
+        <option value="1">الفصل الدراسي الأول</option>
+        <option value="2">الفصل الدراسي الثاني</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="difficulty">⚡ مستوى الصعوبة</label>
+      <select id="difficulty">
+        <option value="easy">🟢 سهل</option>
+        <option value="medium">🟡 متوسط</option>
+        <option value="hard">🔴 صعب</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="count">❓ عدد الأسئلة</label>
+      <select id="count">
+        <option value="5">5 أسئلة</option>
+        <option value="10">10 أسئلة</option>
+        <option value="15">15 سؤالًا</option>
+        <option value="20">20 سؤالًا</option>
+        <option value="30">30 سؤالًا</option>
+        <option value="40">40 سؤالًا</option>
+        <option value="50">50 سؤالًا</option>
+        <option value="60">60 سؤالًا</option>
+        <option value="70">70 سؤالًا</option>
+        <option value="80">80 سؤالًا</option>
+        <option value="90">90 سؤالًا</option>
+        <option value="100">100 سؤال</option>
+      </select>
+    </div>
+
+    <button class="main-button" onclick="startGame()">
+      ابدأ التحدي 🚀
+    </button>
+
+    <button class="back-button" onclick="showPage('home')">
+      العودة للرئيسية
+    </button>
+
+  </section>
+
+  <section id="game" class="page">
+
+    <div class="game-header">
+      <span>⭐ النقاط: <b id="score">0</b></span>
+      <span>⏱️ الوقت: <b id="timer">20</b></span>
+    </div>
+
+    <div class="progress-track">
+      <div id="progress"></div>
+    </div>
+
+    <p id="questionNumber"></p>
+
+    <div class="question-box">
+      <h2 id="questionText">السؤال</h2>
+    </div>
+
+    <div id="answers" class="answers"></div>
+
+    <p id="feedback"></p>
+
+  </section>
+
+  <section id="result" class="page">
+
+    <div class="result-icon">🏆</div>
+    <h2>انتهى التحدي!</h2>
+
+    <h3 id="finalScore">0 نقطة</h3>
+    <p id="finalMessage"></p>
+
+    <button class="main-button" onclick="showPage('setup')">
+      تحدٍ جديد 🔄
+    </button>
+
+    <button class="back-button" onclick="showPage('home')">
+      الرئيسية
+    </button>
+
+  </section>
+
+  <footer>
+    <p>مدينة العباقرة © 2026</p>
+    <p>العلم طريق الإبداع ✨</p>
+  </footer>
+
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
